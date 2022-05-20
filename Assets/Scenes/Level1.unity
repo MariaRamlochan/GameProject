@@ -2275,6 +2275,18 @@ PrefabInstance:
       propertyPath: UseText
       value: 
       objectReference: {fileID: 1881766254}
+    - target: {fileID: 8204767106815586254, guid: e74c54e25518da34f9343c207fa183d1, type: 3}
+      propertyPath: audioScorce
+      value: 
+      objectReference: {fileID: 1595257281}
+    - target: {fileID: 8204767106815586254, guid: e74c54e25518da34f9343c207fa183d1, type: 3}
+      propertyPath: doorOpenAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 937045484670cc642a27da834f3e0057, type: 3}
+    - target: {fileID: 8204767106815586254, guid: e74c54e25518da34f9343c207fa183d1, type: 3}
+      propertyPath: doorCloseAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ed051b11ebb8be418c68e8ebcb5599b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e74c54e25518da34f9343c207fa183d1, type: 3}
 --- !u!1 &613096678

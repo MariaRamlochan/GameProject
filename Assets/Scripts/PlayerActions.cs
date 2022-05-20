@@ -13,7 +13,16 @@ public class PlayerActions : MonoBehaviour
     private float MaxUseDistance = 5f;
     [SerializeField]
     private LayerMask UseLayers;
- 
+
+    public AudioSource audioScorce;
+    public AudioClip doorOpenAudio;
+    public AudioClip doorCloseAudio;
+
+    private void Start()
+    {
+        audioScorce = GetComponent<AudioSource>();
+    }
+
     public void OnUse()
     {
         if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, MaxUseDistance, UseLayers))
@@ -22,10 +31,12 @@ public class PlayerActions : MonoBehaviour
             {
                 if(door.IsOpen){
                     door.Close();
+                    audioScorce.PlayOneShot(doorCloseAudio);
                 }
                 else
                 {
                     door.Open(transform.position);
+                    audioScorce.PlayOneShot(doorOpenAudio);
                 }
             }
         }
