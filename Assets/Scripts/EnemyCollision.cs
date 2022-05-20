@@ -5,15 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class EnemyCollision : MonoBehaviour
 {
-   public int count = 0;
-   private void OnCollisionEnter(Collision col)
+    public int health = 30;
+    public int damage = 10;
+
+    private void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "Enemy")
         {
-            count += 1;
+            health = health - damage;
+            Debug.Log(health);
+
         }
 
-        if (count == 3)
+        if (health == 0)
         {
             SceneManager.LoadScene("GameOver");
         }
