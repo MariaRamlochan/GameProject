@@ -7,6 +7,6 @@ public class RetryLevel1 : MonoBehaviour
 {
     public void Replay()
     {
-        SceneManager.LoadScene("Show");
+        SceneManager.LoadScene("Level1");
     }
 }
