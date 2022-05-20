@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PointsCollect : MonoBehaviour
 {
@@ -33,6 +34,14 @@ public class PointsCollect : MonoBehaviour
             score += 1;
             lblScore.text = "Keys: " + score + "/" + total;
             audioScorce.PlayOneShot(keyAudio);
+        }
+
+        if (other.gameObject.tag == "Exit")
+        {
+            if (score == total)
+            {
+                SceneManager.LoadScene("FinalLevel");
+            }
         }
     }
 }
