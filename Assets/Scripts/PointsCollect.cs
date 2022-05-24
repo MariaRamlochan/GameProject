@@ -2,21 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PointsCollect : MonoBehaviour
 {
     [SerializeField]
     public int score = 0;
-    public int total = 0;
+    public int totalKey = 0;
     public TMP_Text lblScore;
     public AudioSource audioScorce;
     public AudioClip syringeAudio;
     public AudioClip keyAudio;
+    public Image icon;
+    public Sprite syringSprite;
+    public Sprite keySprite;
 
     private void Start()
     {
         audioScorce = GetComponent<AudioSource>();
+        icon.sprite = syringSprite;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,7 +29,7 @@ public class PointsCollect : MonoBehaviour
         if (other.gameObject.tag == "Syringe")
         {
             score += 1;
-            lblScore.text = "Score: " + score;
+            lblScore.text = "X " + score;
             audioScorce.PlayOneShot(syringeAudio);
         }
 
@@ -32,13 +37,14 @@ public class PointsCollect : MonoBehaviour
         {
             score = 0;
             score += 1;
-            lblScore.text = "Keys: " + score + "/" + total;
+            icon.sprite = keySprite;
+            lblScore.text = score + "/" + totalKey;
             audioScorce.PlayOneShot(keyAudio);
         }
 
         if (other.gameObject.tag == "Exit")
         {
-            if (score == total)
+            if (score == totalKey)
             {
                 SceneManager.LoadScene("FinalLevel");
             }
