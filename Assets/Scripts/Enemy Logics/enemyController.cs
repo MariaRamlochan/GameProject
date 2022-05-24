@@ -32,7 +32,7 @@ public class enemyController : MonoBehaviour
 
 		if (playerDistance < MobDistanceRun)
 		{
-			LookAtPlayer();
+			//LookAtPlayer();
 			Debug.Log("Seen");
 
 			if (playerDistance < MobDistanceRun)
