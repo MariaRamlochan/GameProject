@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public Transform spawnPoint;
     public bool isSpawn = false;
 
     private void OnTriggerEnter(Collider other)
@@ -14,7 +13,7 @@ public class EnemySpawn : MonoBehaviour
         {
             if (isSpawn == false)
             {
-                Instantiate(enemyPrefab, spawnPoint.position, Quaternion.Euler(90, 0, 0));
+                enemyPrefab.SetActive(true);
                 isSpawn = true;
             }
         }
