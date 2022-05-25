@@ -5,12 +5,16 @@ using UnityEngine.AI;
 
 public class enemyController : MonoBehaviour
 {
+	//Animation components
+	Animator animator;
 
+	//Chase components
 	public Transform player;
 	public float playerDistance;
-	public float AIMoveSpeed;
+	//public float AIMoveSpeed;
 	public float MobDistanceRun = 4.0f;
 
+	//Patroling components
 	public Transform[] navPoint;
 	private NavMeshAgent agent;
 	public int destPoint = 0;
@@ -18,37 +22,47 @@ public class enemyController : MonoBehaviour
 	void Start()
 	{
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-
-		agent.autoBraking = false;
-
+		animator = GetComponent<Animator>();
+		//agent.autoBraking = false;
 	}
 
 	void Update()
 	{
-
 		playerDistance = Vector3.Distance(player.transform.position, transform.position);
 
 		if (playerDistance < MobDistanceRun)
 		{
 			LookAtPlayer();
 			Debug.Log("Seen");
-
+			
 			if (playerDistance < MobDistanceRun)
 			{
 				Chase();
 			}
-			else
+            else
+            {
 				GotoNextPoint();
+			}
+		}
+
+		if (playerDistance > MobDistanceRun)
+        {
+			animator.SetBool("isDetected", false);
+			animator.SetBool("isChasing", false);
 		}
 
 		if (agent.remainingDistance < 0.5f)
+        {
+			animator.SetBool("isPatroling", true);
 			GotoNextPoint();
+		}			
 	}
 
     void LookAtPlayer()
     {
         transform.LookAt(player);
-    }
+		animator.SetBool("isDetected", true);
+	}
 
     void GotoNextPoint()
 	{
@@ -63,5 +77,8 @@ public class enemyController : MonoBehaviour
 		Vector3 dirToPlayer = transform.position - player.transform.position;
 		Vector3 newPos = transform.position - dirToPlayer;
 		agent.SetDestination(newPos);
+
+		animator.SetBool("isChasing", true);
+		animator.SetBool("isPatroling", false);
 	}
 }
