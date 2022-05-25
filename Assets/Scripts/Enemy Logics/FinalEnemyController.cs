@@ -7,17 +7,21 @@ public class FinalEnemyController : MonoBehaviour
 {
 	public Transform player;
 	public float playerDistance;
-	public float AIMoveSpeed;
 	public float MobDistanceRun = 4.0f;
 
 	public Transform[] navPoint;
 	private NavMeshAgent agent;
 	public int destPoint = 0;
 
+	public AudioSource audioScorce;
+	public AudioClip screamAudio;
+	public AudioClip intenseChaseAudio;
+
 	void Start()
 	{
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		agent.autoBraking = false;
+		audioScorce = GetComponent<AudioSource>();
 	}
 
 	void Update()
@@ -27,10 +31,12 @@ public class FinalEnemyController : MonoBehaviour
 		if (playerDistance < MobDistanceRun)
 		{
 			LookAtPlayer();
+			audioScorce.PlayOneShot(screamAudio);
 			Debug.Log("Seen");
 
 			if (playerDistance < MobDistanceRun)
 			{
+				audioScorce.PlayOneShot(intenseChaseAudio);
 				Chase();
 			}
 			else
