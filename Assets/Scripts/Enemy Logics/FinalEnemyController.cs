@@ -40,11 +40,19 @@ public class FinalEnemyController : MonoBehaviour
 				Chase();
 			}
 			else
+            {
+				audioScorce.Stop();
 				GotoNextPoint();
+			}
+				
 		}
 
 		if (agent.remainingDistance < 0.5f)
+        {
+			audioScorce.Stop();
 			GotoNextPoint();
+		}
+			
 	}
 
 	void LookAtPlayer()

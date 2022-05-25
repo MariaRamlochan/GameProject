@@ -2483,6 +2483,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   destPoint: 0
+  audioScorce: {fileID: 8103872021407272102}
+  screamAudio: {fileID: 8300000, guid: 7daad42d252f7cc43a1795d2f821d9b5, type: 3}
+  intenseChaseAudio: {fileID: 8300000, guid: 82fb76a6b56d8d6428a95ecc42b18b8f, type: 3}
 --- !u!1 &7078891455381772068
 GameObject:
   m_ObjectHideFlags: 0
