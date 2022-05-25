@@ -11,7 +11,6 @@ public class enemyController : MonoBehaviour
 	//Chase components
 	public Transform player;
 	public float playerDistance;
-	//public float AIMoveSpeed;
 	public float MobDistanceRun = 4.0f;
 
 	//Patroling components
@@ -23,7 +22,7 @@ public class enemyController : MonoBehaviour
 	{
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		animator = GetComponent<Animator>();
-		//agent.autoBraking = false;
+		agent.autoBraking = false;
 	}
 
 	void Update()

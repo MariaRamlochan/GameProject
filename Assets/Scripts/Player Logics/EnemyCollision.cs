@@ -12,6 +12,8 @@ public class EnemyCollision : MonoBehaviour
     public Image filler;
     public TMP_Text lblHealthAmount;
 
+    public float knockBackForce = 250;
+
     // Use this for initialization
     void Start()
     {
@@ -26,12 +28,17 @@ public class EnemyCollision : MonoBehaviour
             filler.fillAmount -= 1.0f/3.0f;
             lblHealthAmount.text = "X " + health;
             Debug.Log(health);
-
+            knockBack();
         }
 
         if (health == 0)
         {
             SceneManager.LoadScene("GameOver");
         }
+    }
+
+    public void knockBack()
+    {
+        transform.position += transform.forward * Time.deltaTime * knockBackForce;
     }
 }
