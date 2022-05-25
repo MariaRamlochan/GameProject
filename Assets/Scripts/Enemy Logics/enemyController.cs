@@ -14,12 +14,10 @@ public class enemyController : MonoBehaviour
 	public Transform[] navPoint;
 	private NavMeshAgent agent;
 	public int destPoint = 0;
-	//public Transform goal;
 
 	void Start()
 	{
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-		//agent.destination = goal.position;
 
 		agent.autoBraking = false;
 
@@ -32,7 +30,7 @@ public class enemyController : MonoBehaviour
 
 		if (playerDistance < MobDistanceRun)
 		{
-			//LookAtPlayer();
+			LookAtPlayer();
 			Debug.Log("Seen");
 
 			if (playerDistance < MobDistanceRun)
@@ -45,16 +43,6 @@ public class enemyController : MonoBehaviour
 
 		if (agent.remainingDistance < 0.5f)
 			GotoNextPoint();
-
-		//if (playerDistance < awareAI)
-		//{
-		//	if (playerDistance < 2f)
-		//	{
-		//		Chase();
-		//	}
-		//	else
-		//		GotoNextPoint();
-		//}
 	}
 
     void LookAtPlayer()
@@ -72,8 +60,6 @@ public class enemyController : MonoBehaviour
 
 	void Chase()
 	{
-		//transform.Translate(Vector3.forward * AIMoveSpeed * Time.deltaTime);
-
 		Vector3 dirToPlayer = transform.position - player.transform.position;
 		Vector3 newPos = transform.position - dirToPlayer;
 		agent.SetDestination(newPos);
