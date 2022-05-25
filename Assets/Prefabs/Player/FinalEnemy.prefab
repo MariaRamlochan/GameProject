@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 6071459543362394563}
   - component: {fileID: 2084312757080742250}
   - component: {fileID: 2239642278333358378}
-  - component: {fileID: 2239642278333358389}
+  - component: {fileID: 882546673972522992}
   m_Layer: 0
   m_Name: FinalEnemy
   m_TagString: Enemy
@@ -452,7 +452,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2239642278333358389
+--- !u!114 &882546673972522992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -461,13 +461,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 906193638621906602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d77c01feb44e3e4a81515d88e0a4e5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d04bb16d474420458937de47a63ce03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerDistance: 0
   AIMoveSpeed: 0
-  MobDistanceRun: 100
+  MobDistanceRun: 4
   navPoint: []
   destPoint: 0
 --- !u!1 &939490992922120130

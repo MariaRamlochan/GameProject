@@ -35787,6 +35787,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 882546673972522992, guid: 8e5010944ac392a47a6282105228c10c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1167996476}
+    - target: {fileID: 882546673972522992, guid: 8e5010944ac392a47a6282105228c10c, type: 3}
+      propertyPath: MobDistanceRun
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 906193638621906602, guid: 8e5010944ac392a47a6282105228c10c, type: 3}
       propertyPath: m_Name
       value: FinalEnemy
@@ -35795,10 +35803,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2239642278333358389, guid: 8e5010944ac392a47a6282105228c10c, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1167996476}
     - target: {fileID: 4235683316018312377, guid: 8e5010944ac392a47a6282105228c10c, type: 3}
       propertyPath: m_RootOrder
       value: 2

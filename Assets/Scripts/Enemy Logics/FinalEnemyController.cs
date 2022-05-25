@@ -13,20 +13,15 @@ public class FinalEnemyController : MonoBehaviour
 	public Transform[] navPoint;
 	private NavMeshAgent agent;
 	public int destPoint = 0;
-	//public Transform goal;
 
 	void Start()
 	{
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-		//agent.destination = goal.position;
-
 		agent.autoBraking = false;
-
 	}
 
 	void Update()
 	{
-
 		playerDistance = Vector3.Distance(player.transform.position, transform.position);
 
 		if (playerDistance < MobDistanceRun)
@@ -61,8 +56,6 @@ public class FinalEnemyController : MonoBehaviour
 
 	void Chase()
 	{
-		//transform.Translate(Vector3.forward * AIMoveSpeed * Time.deltaTime);
-
 		Vector3 dirToPlayer = transform.position - player.transform.position;
 		Vector3 newPos = transform.position - dirToPlayer;
 		agent.SetDestination(newPos);
