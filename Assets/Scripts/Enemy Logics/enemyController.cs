@@ -6,21 +6,27 @@ using UnityEngine.AI;
 public class enemyController : MonoBehaviour
 {
 
+	//Animation variables
+	Animator animator;
+
+
+	//Chase variables
 	public Transform player;
 	public float playerDistance;
-	public float AIMoveSpeed;
+	//public float AIMoveSpeed;
 	public float MobDistanceRun = 4.0f;
 
+	//Patrol variables
 	public Transform[] navPoint;
 	private NavMeshAgent agent;
 	public int destPoint = 0;
 
 	void Start()
 	{
+		animator = GetComponent<Animator>();
+
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-
 		agent.autoBraking = false;
-
 	}
 
 	void Update()
@@ -33,16 +39,27 @@ public class enemyController : MonoBehaviour
 			LookAtPlayer();
 			Debug.Log("Seen");
 
+			//animator.SetBool("isDetected", true);
+
 			if (playerDistance < MobDistanceRun)
 			{
 				Chase();
 			}
-			else
+            else
+            {
 				GotoNextPoint();
+            }
+				
 		}
 
 		if (agent.remainingDistance < 0.5f)
+        {
+			animator.SetBool("isChasing", false);
+
 			GotoNextPoint();
+
+			animator.SetBool("isPatroling", true);
+		}
 	}
 
     void LookAtPlayer()
@@ -63,5 +80,7 @@ public class enemyController : MonoBehaviour
 		Vector3 dirToPlayer = transform.position - player.transform.position;
 		Vector3 newPos = transform.position - dirToPlayer;
 		agent.SetDestination(newPos);
+		animator.SetBool("isChasing", true);
+		//animator.SetBool("isDetected", false);
 	}
 }
