@@ -21,6 +21,7 @@ public class enemyController : MonoBehaviour
 	public AudioSource audioScorce;
 	public AudioClip screamAudio;
 	public AudioClip intenseChaseAudio;
+	public AudioClip GameMusic;
 
 	void Start()
 	{
@@ -33,6 +34,7 @@ public class enemyController : MonoBehaviour
 
 	void Update()
 	{
+
 		playerDistance = Vector3.Distance(player.transform.position, transform.position);
 
 		if (playerDistance < MobDistanceRun)
@@ -57,11 +59,14 @@ public class enemyController : MonoBehaviour
         {
 			animator.SetBool("isDetected", false);
 			animator.SetBool("isChasing", false);
+			animator.SetBool("isPatroling", true);
 			audioScorce.Stop();
 		}
 
 		if (agent.remainingDistance < 0.5f)
         {
+			//animator.SetBool("isDetected", false);
+			//animator.SetBool("isChasing", false);
 			animator.SetBool("isPatroling", true);
 			GotoNextPoint();
 		}			
@@ -78,7 +83,7 @@ public class enemyController : MonoBehaviour
 		if (navPoint.Length == 0)
 			return;
 		agent.destination = navPoint[destPoint].position;
-		destPoint = (destPoint + 1) % navPoint.Length;
+		destPoint = (destPoint + 1) % navPoint.Length; 
 	}
 
 	void Chase()
