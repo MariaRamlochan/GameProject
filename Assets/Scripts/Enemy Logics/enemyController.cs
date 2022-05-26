@@ -37,6 +37,7 @@ public class enemyController : MonoBehaviour
 		if (playerDistance < MobDistanceRun)
 		{
 			LookAtPlayer();
+			audioSource.PlayOneShot(screamAudio);
 			Debug.Log("Seen");
 			
 			if (playerDistance < MobDistanceRun)
@@ -48,10 +49,8 @@ public class enemyController : MonoBehaviour
             else
             {
 				audioSource.Stop();
-
 				audioSource.clip = GameMusic;
 				audioSource.Play();
-
 				GotoNextPoint();
 			}
 		}
@@ -61,10 +60,6 @@ public class enemyController : MonoBehaviour
 			animator.SetBool("isDetected", false);
 			animator.SetBool("isChasing", false);
 			animator.SetBool("isPatroling", true);
-
-			audioSource.clip = GameMusic;
-			audioSource.Play();
-
 		}
 
 		if (agent.remainingDistance < 0.5f)
@@ -72,9 +67,6 @@ public class enemyController : MonoBehaviour
 			//animator.SetBool("isDetected", false);
 			//animator.SetBool("isChasing", false);
 			animator.SetBool("isPatroling", true);
-
-			//audioSource.Stop();
-
 			GotoNextPoint();
 		}			
 	}
@@ -83,10 +75,6 @@ public class enemyController : MonoBehaviour
     {
         transform.LookAt(player);
 		animator.SetBool("isDetected", true);
-
-		//audioSource.clip = screamAudio;
-		audioSource.Stop();
-		audioSource.PlayOneShot(screamAudio);
 	}
 
     void GotoNextPoint()
