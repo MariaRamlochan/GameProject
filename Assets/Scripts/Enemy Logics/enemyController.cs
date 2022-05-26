@@ -19,16 +19,14 @@ public class enemyController : MonoBehaviour
 	public int destPoint = 0;
 
 	public AudioSource audioSource;
-	//public AudioClip screamAudio;
-	//public AudioClip intenseChaseAudio;
+	public AudioClip screamAudio;
+	public AudioClip intenseChaseAudio;
 
 	void Start()
 	{
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		animator = GetComponent<Animator>();
 		agent.autoBraking = false;
-
-		audioSource = GetComponent<AudioSource>();
 	}
 
 	void Update()
@@ -39,16 +37,18 @@ public class enemyController : MonoBehaviour
 		if (playerDistance < MobDistanceRun)
 		{
 			LookAtPlayer();
-			audioSource.Play();
-			//audioSource.PlayOneShot(screamAudio);
+			audioSource.PlayOneShot(screamAudio);
 			Debug.Log("Seen");
 			
 			if (playerDistance < MobDistanceRun)
 			{
+				audioSource.clip = intenseChaseAudio;
+				audioSource.Play();
 				Chase();
 			}
             else
             {
+				audioSource.Stop();
 				GotoNextPoint();
 			}
 		}

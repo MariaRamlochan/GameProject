@@ -8948,7 +8948,7 @@ PrefabInstance:
     - target: {fileID: 1785744590, guid: ad8f7a9c89692824fb5e127e4250a155, type: 3}
       propertyPath: intenseChaseAudio
       value: 
-      objectReference: {fileID: 8300000, guid: fcb490b2f55a9074eaf674d068fc794e, type: 3}
+      objectReference: {fileID: 8300000, guid: 82fb76a6b56d8d6428a95ecc42b18b8f, type: 3}
     - target: {fileID: 1785744590, guid: ad8f7a9c89692824fb5e127e4250a155, type: 3}
       propertyPath: navPoint.Array.data[0]
       value: 
@@ -9792,7 +9792,7 @@ PrefabInstance:
     - target: {fileID: 8103872021407272102, guid: ad8f7a9c89692824fb5e127e4250a155, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 7daad42d252f7cc43a1795d2f821d9b5, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8103872021407272102, guid: ad8f7a9c89692824fb5e127e4250a155, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
